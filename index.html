@@ -1,503 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.3/css/unicons.css">
-    <link rel="stylesheet" href="./plugins/headline/headline.css">
-    <link rel="stylesheet" href="./plugins/magnify.css">
-    <link rel="shorcut icon" href="./images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>Arpit Kumar Dubey Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arpit Kumar Dubey — Data Analytics · Python · AI/ML</title>
+<meta name="description" content="Portfolio of Arpit Kumar Dubey — Final-year B.Tech CSE student. Data Analytics, Python, Power BI and Machine Learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf8f4; --ink:#14100d; --muted:#6f675e; --card:#ffffff;
+    --vio:#6d28d9; --org:#f97316; --amb:#f59e0b;
+    --grad:linear-gradient(92deg,#6d28d9,#db2777 55%,#f97316);
+    --line:rgba(20,16,13,.09);
+    --shadow:0 24px 50px -18px rgba(20,16,13,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden}
+  h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:14px;left:0;right:0;z-index:60;display:flex;justify-content:center;pointer-events:none}
+  .pill{pointer-events:auto;display:flex;align-items:center;gap:4px;background:rgba(20,16,13,.92);color:#fff;border-radius:99px;padding:7px 8px 7px 18px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+  .pill .brand{font-family:'Space Grotesk';font-weight:700;margin-right:14px;font-size:15px}
+  .pill .brand i{font-style:normal;color:var(--org)}
+  .pill a{font-size:13.5px;padding:8px 13px;border-radius:99px;color:#d8d2cc;transition:.2s}
+  .pill a:hover{background:rgba(255,255,255,.14);color:#fff}
+  .pill a.cta{background:var(--grad);color:#fff;font-weight:600}
+  @media(max-width:820px){.pill a:not(.cta){display:none}}
+  /* ---------- hero ---------- */
+  .hero{padding:150px 0 40px;position:relative}
+  .hero::before{content:"";position:absolute;top:-140px;right:-160px;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,rgba(249,115,22,.22),transparent 65%)}
+  .hero::after{content:"";position:absolute;top:60px;left:-200px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(109,40,217,.16),transparent 65%)}
+  .hgrid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;z-index:2}
+  @media(max-width:880px){.hgrid{grid-template-columns:1fr;text-align:center}}
+  .tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:13px;font-weight:600;box-shadow:0 6px 18px rgba(20,16,13,.06)}
+  .tag .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+  .hero h1{font-size:clamp(42px,6.4vw,72px);line-height:1.02;font-weight:700;letter-spacing:-1.5px;margin:20px 0 6px}
+  .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .roleline{font-size:clamp(17px,2.4vw,22px);color:var(--muted);font-weight:500}
+  .roleline b{color:var(--ink)}
+  .caret{display:inline-block;width:2px;height:1em;background:var(--org);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero .intro{color:var(--muted);line-height:1.7;max-width:520px;margin-top:16px;font-size:16px}
+  @media(max-width:880px){.hero .intro{margin:16px auto 0}}
+  .btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  @media(max-width:880px){.btns{justify-content:center}}
+  .btn{padding:13px 24px;border-radius:14px;font-weight:600;font-size:14.5px;transition:.25s;border:1.5px solid var(--ink)}
+  .btn.solid{background:var(--ink);color:#fff}
+  .btn.grad{background:var(--grad);border:none;color:#fff}
+  .btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .hero .links{display:flex;gap:10px;margin-top:24px}
+  @media(max-width:880px){.hero .links{justify-content:center}}
+  .hero .links a{font-size:13px;font-weight:700;padding:9px 14px;border-radius:10px;background:#fff;border:1px solid var(--line);color:var(--muted);transition:.2s}
+  .hero .links a:hover{color:var(--vio);border-color:var(--vio);transform:translateY(-2px)}
+  .photowrap{position:relative;justify-self:center}
+  .photowrap img{width:min(330px,80vw);aspect-ratio:.86;object-fit:cover;object-position:top;border-radius:170px 170px 26px 26px;border:6px solid #fff;box-shadow:var(--shadow)}
+  .float{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:700;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center}
+  .float small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+  .f1{top:36px;left:-58px}.f2{bottom:44px;right:-46px}
+  @media(max-width:1080px){.f1{left:-8px}.f2{right:-8px}}
+  /* ticker */
+  .ticker{margin:64px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:15px 0;background:#fff}
+  .track{display:flex;gap:44px;width:max-content;animation:slide 26s linear infinite;font-family:'Space Grotesk';font-weight:600;font-size:15px;color:var(--muted);white-space:nowrap}
+  .track span b{color:var(--org);font-weight:600}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  /* sections */
+  section{padding:78px 0 6px}
+  .kick{font-size:12.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--org)}
+  .title{font-size:clamp(27px,4vw,38px);font-weight:700;letter-spacing:-.8px;margin:9px 0 10px}
+  .sub{color:var(--muted);line-height:1.7;max-width:660px}
+  .reveal{opacity:0;transform:translateY(22px);transition:all .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.on{opacity:1;transform:none}
+  /* bento */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  @media(max-width:880px){.bento{grid-template-columns:repeat(2,1fr)}}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 26px -14px rgba(20,16,13,.12)}
+  .tile.big{grid-column:span 2;display:flex;flex-direction:column;justify-content:center}
+  @media(max-width:880px){.tile.big{grid-column:span 2}}
+  .tile .num{font-family:'Space Grotesk';font-size:38px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tile .lab{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .tile h3{font-size:17px;margin-bottom:8px}
+  .tile p{color:var(--muted);font-size:14px;line-height:1.65}
+  /* skills */
+  .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  @media(max-width:880px){.sgrid{grid-template-columns:1fr}}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 26px -14px rgba(20,16,13,.12)}
+  .scard .ic{font-size:26px}
+  .scard h3{font-size:16.5px;margin:12px 0 10px}
+  .scard ul{list-style:none}
+  .scard li{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--line);color:#3d372f}
+  .scard li:last-child{border:none}
+  .scard li b{color:var(--vio)}
+  /* experience */
+  .xp{margin-top:28px;display:grid;gap:14px}
+  .job{display:grid;grid-template-columns:170px 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;box-shadow:0 10px 26px -14px rgba(20,16,13,.1)}
+  @media(max-width:760px){.job{grid-template-columns:1fr}}
+  .job .when{font-family:'Space Grotesk';font-weight:700;font-size:14px;color:var(--vio)}
+  .job .when small{display:block;color:var(--muted);font-family:'Inter';font-weight:500;margin-top:3px}
+  .job h3{font-size:17px;margin-bottom:6px}
+  .job p{color:var(--muted);font-size:14.5px;line-height:1.65}
+  /* projects */
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  @media(max-width:960px){.pgrid{grid-template-columns:1fr}}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 26px -14px rgba(20,16,13,.12);transition:.3s}
+  .pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .pcard .vis{height:180px;overflow:hidden;position:relative}
+  .pcard .vis img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .pcard:hover .vis img{transform:scale(1.07)}
+  .pcard .art{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:20px;background:linear-gradient(130deg,#6d28d9,#db2777 60%,#f97316)}
+  .pcard .art small{font-family:'Inter';font-weight:500;font-size:12.5px;opacity:.85}
+  .pcard .in{padding:22px}
+  .pcard h3{font-size:17.5px;margin-bottom:8px}
+  .pcard p{color:var(--muted);font-size:14px;line-height:1.65}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .tags span{font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:99px;background:#f4efe8;color:#8a4b12;border:1px solid #eadfce}
+  .pcard .go{display:inline-block;margin-top:16px;font-weight:700;font-size:14px;color:var(--vio)}
+  .pcard .go:hover{color:var(--org)}
+  /* certificates */
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  @media(max-width:960px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.cgrid{grid-template-columns:1fr}}
+  .cert{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 26px -14px rgba(20,16,13,.12);transition:.3s}
+  .cert:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .cert .vis{height:200px;background:#f1eadf;overflow:hidden}
+  .cert .vis img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.5s}
+  .cert:hover .vis img{transform:scale(1.04)}
+  .cert .art{height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(130deg,#14100d,#3b2a63);color:#fff;font-size:40px}
+  .cert .art small{font-size:13px;font-family:'Space Grotesk';letter-spacing:1px}
+  .cert .in{padding:18px 20px}
+  .cert .org{font-size:12px;font-weight:700;letter-spacing:1.6px;color:var(--org);text-transform:uppercase}
+  .cert h3{font-size:16px;margin-top:5px;line-height:1.45}
+  /* education */
+  .egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  @media(max-width:880px){.egrid{grid-template-columns:1fr}}
+  .edu{background:var(--ink);color:#fff;border-radius:22px;padding:26px;position:relative;overflow:hidden}
+  .edu::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.5),transparent 70%)}
+  .edu .yr{font-family:'Space Grotesk';color:var(--amb);font-weight:700;font-size:13.5px;letter-spacing:1px}
+  .edu h3{font-size:17px;margin:10px 0 7px;line-height:1.5}
+  .edu p{color:#bdb4aa;font-size:14px;line-height:1.6}
+  .edu .score{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 13px;border-radius:99px;font-weight:700;font-size:13px}
+  /* contact */
+  .cta{margin-top:34px;border-radius:28px;padding:52px 34px;text-align:center;color:#fff;background:linear-gradient(120deg,#1b1035,#4c1d95 45%,#9a3412);box-shadow:var(--shadow)}
+  .cta h3{font-size:clamp(24px,3.6vw,34px);letter-spacing:-.5px}
+  .cta p{color:#e7ddf5;line-height:1.7;max-width:520px;margin:12px auto 0}
+  .cta .btns{justify-content:center}
+  .cta .btn{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.08)}
+  .cta .btn.grad{background:#fff;color:#4c1d95;border:none}
+  footer{margin-top:76px;padding:26px 0 34px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
+</style>
 </head>
-
 <body>
-    <main class="container">
-        <section class="profile" id="profile__ripple">
-            <div class="left">
-                <div class="avatar__block">
-                    <img src="images/LinkedinDp.jpeg" alt="">
-                    <span>
-                        <i class="uil uil-comment-dots"></i>
-                    </span>
-                </div>
-                <div>
-                    <h2>Arpit Kumar Dubey</h2>
-                    <p class="cd-headline loading-bar">
-                        <span class="cd-words-wrapper">
-                            <b class="is-visible">React Developer</b>
-                            <b>Java Coder</b>
-                            <b>Java Backend Developer</b>
 
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="right">
-                <ul class="contact">
-                    <li>
-                        <i class="uil uil-envelope"></i>
-                        <a href="https://arpitdubey325@gmail.com" target="_blank">
-                             <strong>Email : </strong> arpitdubey325@gmail.com
-                        </a>
-                    </li>
-                </ul>
-                <ul class="socials">
-                    <li>
-                        <a href="https://github.com/arpitdubey25" target="_blank">
-                            <i class="uil uil-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/in/arpit-kumar-dubey-674466311" target="_blank">
-                            <i class="uil uil-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+<nav>
+  <div class="pill">
+    <span class="brand">arpit<i>.</i>dubey</span>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+    <a href="#projects">Projects</a><a href="#certificates">Certificates</a><a href="#education">Education</a>
+    <a class="cta" href="#contact">Hire Me</a>
+  </div>
+</nav>
 
-        <section class="about">
-            <h1 class="section__heading">About Me!</h1>
-            <div class="content">
-                <div class="left">
-                    <h2>I'm Arpit Kumar Dubey </h2>
-                    <p>I am a BTech graduate majored in Computer Science Engineering. I have an understanding of DSA,
-                        Java, OOPs Concepts, HTML/CSS/JS and ReactJs. My core responsibilities are Backend Java Development I'm actively searching for opportunities to kickstart my journey, learn
-                        from experts and make a difference within a forward thinking organization.🔥👨🏽‍💻🏅</p>
-                    <a href="images/Arpit_Kumar_Dubey_Resume.pdf" download="Arpit Kumar Dubey Resume">
-                        <button id="down">Download CV</button>
-                    </a>
-                    <a href="images/Arpit_Kumar_Dubey_Resume.pdf" target="_blank">
-                        <button id="down">View CV</button>
-                    </a>
-                </div>
-                <div class="right">
-                    <p>
-                        <span>Name</span>
-                        <span>Arpit Kumar Dubey</span>
-                    </p>
-                    <p>
-                        <span>Date of birth</span>
-                        <span>25 February 2006</span>
-                    </p>
-                    <p>
-                        <span>Spoken Langages</span>
-                        <span>English - Hindi</span>
-                    </p>
-                    <p>
-                        <span>Nationality</span>
-                        <span>India</span>
-                    </p>
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hgrid">
+      <div>
+        <span class="tag"><span class="dot"></span> Open to Internships — 2026</span>
+        <h1>Arpit Kumar<br><span class="grad">Dubey</span></h1>
+        <div class="roleline">I work as a <b id="typed"></b><span class="caret"></span></div>
+        <p class="intro">Final-year B.Tech CSE student who turns raw data into decisions — and ideas into working software. Data-analytics internships, machine-learning projects and web builds, all shipped end-to-end.</p>
+        <div class="btns">
+          <a class="btn grad" href="https://arpitdubey25.github.io/Portfolio/images/Arpit_Kumar_Dubey_Resume.pdf" target="_blank">⬇ Download Resume</a>
+          <a class="btn" href="#projects">See My Work</a>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/arpit-kumardubey" target="_blank">LinkedIn ↗</a>
+          <a href="https://github.com/arpitdubey25" target="_blank">GitHub ↗</a>
+          <a href="https://leetcode.com/u/arpitdubey2526/" target="_blank">LeetCode ↗</a>
+          <a href="mailto:arpitdubey325@gmail.com">Email ↗</a>
+        </div>
+      </div>
+      <div class="photowrap">
+        <img src="https://arpitdubey25.github.io/Portfolio/images/LinkedinDp.jpeg" alt="Arpit Kumar Dubey">
+        <div class="float f1">📊 Data Analytics<small>Codec · Maincrafts</small></div>
+        <div class="float f2">🏆 100+ LeetCode<small>DSA — solved</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker"><div class="track" id="tickerTrack">
+    <span>Python <b>✦</b></span><span>SQL <b>✦</b></span><span>Power BI <b>✦</b></span><span>Machine Learning <b>✦</b></span><span>Pandas <b>✦</b></span><span>Java <b>✦</b></span><span>Flask <b>✦</b></span><span>JavaScript <b>✦</b></span><span>Data Visualisation <b>✦</b></span><span>DSA <b>✦</b></span>
+  </div></div>
+</header>
 
-        <section class="skills">
-            <h1 class="section__heading">Education & Skills</h1>
-            <div class="content">
-                <div class="left">
-                    <div class="inner__left">
-                        <div class="heading">
-                            <i style="color:#ea4c89" class="uil uil-graduation-cap"></i>
-                            <h5>Education</h5>
-                        </div>
-                        <div class="timeline__wrapper">
-                            <div class="item">
-                                <p>2023 - 2027</p>
-                                <p class="center">Bachelor Of Technology In Computer Science & Engineering</p>
-                                <p>7.2 cgpa</p>
-                                <p>United Institute Of Technology Allahabad  affiliated to Dr. A.P.J. Abdul Kalam
-                                    Technical University</p>
-                            </div>
-                            <div class="item">
-                                <p>2023</p>
-                                <p class="center">Intermediate School</p>
-                                <p>70.83%</p>
-                                <p>Bal Bharti School, Prayagraj</p>
-                            </div>
-                            <div class="item">
-                                <p>2021</p>
-                                <p class="center">High School</p>
-                                <p>73.2%</p>
-                                <p>Kendriya Vidyalaya New Cantt, Prayagraj</p>
-                            </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap reveal">
+    <div class="kick">About Me</div>
+    <h2 class="title">Turning raw data into real decisions</h2>
+    <div class="bento">
+      <div class="tile big">
+        <h3>Final-Year CSE Student · Data Analytics &amp; AI/ML</h3>
+        <p>I am a final-year B.Tech Computer Science &amp; Engineering student at United Institute of Technology, Prayagraj (2023–2027), with internship experience in data analytics at Codec Technologies India and Maincrafts Technology, and web development experience through a 3Skill Training internship and IBM training. I work with Python, SQL, Power BI and machine learning (scikit-learn) to clean data, discover insights and build models — and I have deployed ML web applications end-to-end. I have solved 100+ DSA problems on LeetCode and built 6+ projects across data analytics, ML and web development.</p>
+      </div>
+      <div class="tile"><div class="num" data-n="4">0</div><div class="lab">Internships completed</div></div>
+      <div class="tile"><div class="num" data-n="6" data-s="+">0</div><div class="lab">Projects built &amp; shipped</div></div>
+      <div class="tile"><div class="num" data-n="100" data-s="+">0</div><div class="lab">LeetCode problems solved</div></div>
+      <div class="tile"><div class="num" data-n="11">0</div><div class="lab">Certifications earned</div></div>
+      <div class="tile big">
+        <h3>Quick facts</h3>
+        <p>📍 Prayagraj, India &nbsp;·&nbsp; 🗣 Hindi (Native) &nbsp;·&nbsp; ✍ English (Strong Written)<br>🎯 Focus: Data Analytics · Machine Learning · Web Development</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        </div>
-                    </div>
-                    <!-- <div class="inner__right">
-                        <div class="heading">
-                            <i style="color:#ea4c89" class="uil uil-suitcase-alt"></i>
-                            <h5>Experience</h5>
-                        </div>
-                        <div class="timeline__wrapper">
-                            <div class="item">
-                                <p>04/2024 - present</p>
-                                <p class="center">Software Developer Intern</p>
-                                <p>Vir Softech Pvt. Ltd.</p>
-                                <p>Noida</p>
-                            </div>
-                            <div class="item">
-                                <p>09/2023 - 10/2023</p>
-                                <p class="center">React Full Stack Developer</p>
-                                <p>Masterji Online</p>
-                                <p>Remote</p>
-                            </div>
-                            <div class="item">
-                                <p>02/2023 - 03/2023</p>
-                                <p class="center">Android Development Internship</p>
-                                <p>Udaghosh Social Welfare Society</p>
-                                <p>Remote</p>
-                            </div>
-                            <div class="item">
-                                <p>7/2021 - 12/2021</p>
-                                <p class="center">Campus Ambassador TECHFEST</p>
-                                <p>IIT Bombay</p>
-                                <p>Remote</p>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="right">
-                    <section class="work2">
-                        <div class="wrapper2">
-                            <div class="portfolio2">
-                                <div class="tabs2">
-                                    <ul>
-                                        <li><a href="#" data-tab="technical" class="active">All</a></li>
-                                        <li><a href="#" data-tab="technical" >Technical</a></li>
-                                        <li><a href="#" data-tab="interpersonal">Interpersonal</a></li>
-                                    </ul>
-                                </div>
-                                <div class="item technical">
-                                    <div class="skills__wrapper">
-                                        <div class="skill-box">
-                                            <h4>HTML & CSS</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="88" class="progress__bar">
-                                                    <span class="tooltip">80%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Spring Framework</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="80" class="progress__bar">
-                                                    <span class="tooltip">70%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Java</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="85" class="progress__bar">
-                                                    <span class="tooltip">70%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>DSA</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="80" class="progress__bar">
-                                                    <span class="tooltip">70%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>React</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="85" class="progress__bar">
-                                                    <span class="tooltip">65%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>DBMS</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="88" class="progress__bar">
-                                                    <span class="tooltip">80%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item interpersonal">
-                                    <div class="skills__wrapper">
-                                        <div class="skill-box">
-                                            <h4>Creativity</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="88" class="progress__bar">
-                                                    <span class="tooltip">88%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Problem Solving</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="85" class="progress__bar">
-                                                    <span class="tooltip">70%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Communication Skills</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="90" class="progress__bar">
-                                                    <span class="tooltip">60%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Team Work</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="85" class="progress__bar">
-                                                    <span class="tooltip">80%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="skill-box">
-                                            <h4>Leadership</h4>
-                                            <div class="progress__wrap">
-                                                <span data-percent="90" class="progress__bar">
-                                                    <span class="tooltip">70%</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </section>
-        </section>
-        <section class="counter__section">
-            <div>
-                <div>
-                    <i class="uil uil-cell"></i>
-                </div>
-                <div>
-                    <h3><span class="counter" data-count="3">3</span>+</h3>
-                    <h5>Completed projects</h5>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <i class="uil uil-moneybag"></i>
-                </div>
-                <div>
-                    <h3><span class="counter" data-count="0">0</span></h3>
-                    <h5>Campus Placement Job Offers</h5>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <i class="uil uil-brackets-curly"></i>
-                </div>
-                <div>
-                    <h3><span class="counter" data-count="100">100</span>+</h3>
-                    <h5>Leetcode Questions</h5>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <i class="uil uil-suitcase-alt"></i>
-                </div>
-                <div>
-                    <h3><span class="counter" data-count="1">1</span></h3>
-                    <h5>Internships</h5>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <i class="uil uil-trophy"></i>
-                </div>
-                <div>
-                    <h3><span class="counter" data-count="6">6</span>+</h3>
-                    <h5>Certifications received</h5>
-                </div>
-            </div>
-        </section>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="kick">Skills</div>
+    <h2 class="title">My toolbox 🧰</h2>
+    <div class="sgrid">
+      <div class="scard"><div class="ic">🐍</div><h3>Data &amp; Machine Learning</h3>
+        <ul><li>Python <b>90%</b></li><li>Pandas · NumPy <b>88%</b></li><li>scikit-learn · NLP <b>78%</b></li><li>Matplotlib · Seaborn <b>85%</b></li></ul></div>
+      <div class="scard"><div class="ic">🗄</div><h3>Data Tools &amp; BI</h3>
+        <ul><li>SQL (MySQL) <b>85%</b></li><li>Power BI <b>82%</b></li><li>Excel <b>84%</b></li><li>Jupyter Notebook <b>88%</b></li></ul></div>
+      <div class="scard"><div class="ic">💻</div><h3>Development</h3>
+        <ul><li>Java · OOP <b>80%</b></li><li>HTML · CSS · JavaScript <b>84%</b></li><li>Flask · REST APIs <b>76%</b></li><li>Git · GitHub · DSA <b>82%</b></li></ul></div>
+    </div>
+  </div>
+</section>
 
-        <section class="work">
-            <h1 class="section__heading">My Projects & Certifications</h1>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="kick">Experience</div>
+    <h2 class="title">Where I've worked 💼</h2>
+    <div class="xp">
+      <div class="job"><div class="when">Jul – Aug 2026<small>Internship</small></div>
+        <div><h3>Data Analytics Intern — Codec Technologies India</h3>
+        <p>Worked on real-world data analytics projects — cleaning raw data, exploring patterns and building predictive models in Python. Published project code and documentation on GitHub; shared outcome summaries on LinkedIn.</p></div></div>
+      <div class="job"><div class="when">Jun – Aug 2026<small>Internship</small></div>
+        <div><h3>Data Analytics &amp; BI Intern — Maincrafts Technology</h3>
+        <p>Performed end-to-end data analysis on the Superstore dataset using SQL, Excel and Power BI. Prepared business reports on sales and performance insights, with all work documented on GitHub.</p></div></div>
+      <div class="job"><div class="when">Jul – Sep 2026<small>Internship</small></div>
+        <div><h3>Web Development Intern — 3Skill Training</h3>
+        <p>Completed a 2-month web development internship focused on practical, project-based learning — building web projects with professional development practices aligned to industry expectations.</p></div></div>
+      <div class="job"><div class="when">Jun – Aug 2025<small>Virtual Internship</small></div>
+        <div><h3>Virtual Intern — IBM (Web &amp; Mobile Development)</h3>
+        <p>Hands-on training with a mini project on responsive UI design and deployment.</p></div></div>
+      <div class="job"><div class="when">Aug 2024<small>Training</small></div>
+        <div><h3>Java Trainee — United Institute of Technology</h3>
+        <p>Practical training in Core Java with Collections, completed with a mini project.</p></div></div>
+    </div>
+  </div>
+</section>
 
-            <div class="wrapper">
-                <div class="slider__wrapper">
-                    <div class="icon__wrap"><i class="uil uil-file-landscape"></i></div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap reveal">
+    <div class="kick">Projects</div>
+    <h2 class="title">Built, deployed, delivered 🚀</h2>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="vis"><div class="art">🧠 MindSense AI<small>MENTAL HEALTH DETECTION · LIVE</small></div></div>
+        <div class="in"><h3>MindSense — Mental Health Detection AI</h3>
+          <p>Team final-year project: an AI-based mental health detection system, deployed live. Handled real deployment challenges — library version conflicts, Gunicorn setup and memory optimisation.</p>
+          <div class="tags"><span>Python</span><span>Flask</span><span>MediaPipe</span><span>Render</span></div>
+          <a class="go" href="https://mental-health-detection-aiii.vercel.app/" target="_blank">Live Demo →</a>
+          &nbsp; <a class="go" href="https://github.com/arpitdubey25/mental-health-detection-ai" target="_blank">View Code →</a></div>
+      </div>
+      <div class="pcard">
+        <div class="vis"><img src="https://arpitdubey25.github.io/Portfolio/images/pandas.png" alt="Data Analytics Project"></div>
+        <div class="in"><h3>Employee Attrition Analysis</h3>
+          <p>Analysed HR data to find out why employees leave — cleaned and explored the data in Python and turned patterns into insights that support HR decisions.</p>
+          <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span></div>
+          <a class="go" href="https://github.com/arpitdubey25/Employee-Attrition-Analysis" target="_blank">View on GitHub →</a></div>
+      </div>
+      <div class="pcard">
+        <div class="vis"><div class="art" style="background:linear-gradient(130deg,#0f766e,#0369a1 60%,#6d28d9)">📉 Churn Prediction<small>CUSTOMER CHURN · ML CLASSIFICATION</small></div></div>
+        <div class="in"><h3>Customer Churn Prediction</h3>
+          <p>Predicts which customers are likely to churn using classification models — Logistic Regression, Random Forest and XGBoost — with full EDA and model evaluation.</p>
+          <div class="tags"><span>Python</span><span>XGBoost</span><span>Random Forest</span><span>EDA</span></div>
+          <a class="go" href="https://github.com/arpitdubey25/Customer-Churn-Prediction" target="_blank">View on GitHub →</a></div>
+      </div>
+      <div class="pcard">
+        <div class="vis"><img src="https://arpitdubey25.github.io/Portfolio/images/Project%20Pics/weather1.png" alt="Weather App"></div>
+        <div class="in"><h3>Weather Application</h3>
+          <p>A responsive weather app that fetches live weather data for any city a user enters, using external API integration — deployed via GitHub.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>OpenWeather API</span></div>
+          <a class="go" href="https://github.com/arpitdubey25/WEATHER-APPLICATION-" target="_blank">View on GitHub →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <div class="slider">
-                        <div class="slide">
-                            <iframe src="images/Certificate Of Completion of python .jpeg"></iframe>
-                            <a class="magnifyIframe" href="images/certificate of completion of Python.pdf"
-                                title="Certificate of Completionof Python">
-                                <button id="down">View Certificate</button>
-                            </a>
-                        </div>
-                        <div class="slide">
-                            <iframe src="images/Certificate of Summer Training Completion .jpeg"></iframe>
-                            <a class="magnifyIframe" href="images/Certificate of Summer Training Completion.pdf"
-                                title="Certificate of Summer Training Completion">
-                                <button id="down">View Certificate</button>
-                            </a>
-                        </div>
-                        <div class="slide">
-                            <iframe src="images/SQL Bootcamp Certificate.pdf" class="pdf-iframe"></iframe>
-                            <a class="magnifyIframe" href="images/SQL Bootcamp Certificate.pdf"
-                                title="SQL Bootcamp Certificate">
-                                <button id="down">View Certificate</button>
-                            </a>
-                        </div>
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="wrap reveal">
+    <div class="kick">Certifications</div>
+    <h2 class="title">Proof of work 🏆</h2>
+    <div class="cgrid">
+      <div class="cert"><div class="vis"><img src="https://arpitdubey25.github.io/Portfolio/images/Certificate%20Of%20Completion%20of%20python%20.jpeg" alt="Python Certificate — NASSCOM"></div>
+        <div class="in"><div class="org">NASSCOM</div><h3>Python Certification</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_ibm.jpg" alt="IBM Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">IBM</div><h3>Virtual Internship — Web &amp; Mobile Development</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_codec.jpg" alt="Codec Technologies Internship Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">Codec Technologies</div><h3>Data Analytics Internship</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_maincrafts.jpg" alt="Maincrafts Technology Internship Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">Maincrafts Technology</div><h3>Data Analytics &amp; Business Intelligence Internship</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_3skill.jpg" alt="3Skill Training Internship Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">3Skill Training</div><h3>Web Development Internship</h3></div></div>
+      <div class="cert"><div class="vis"><img src="https://arpitdubey25.github.io/Portfolio/images/SQL%20Bootcamp%20Certificate.jpeg" alt="SQL Bootcamp Certificate"></div>
+        <div class="in"><div class="org">SQL Bootcamp</div><h3>SQL &amp; Database Certification</h3></div></div>
+      <div class="cert"><div class="vis"><img src="https://arpitdubey25.github.io/Portfolio/images/Certificate%20of%20Summer%20Training%20Completion%20.jpeg" alt="Summer Training Certificate"></div>
+        <div class="in"><div class="org">UIT Prayagraj</div><h3>Summer Training — Core Java with Collections</h3></div></div>
+      <div class="cert"><div class="art">🏆<small>100% ACCURACY</small></div>
+        <div class="in"><div class="org">Remotasks</div><h3>Advanced English Certification</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_be10x.jpg" alt="Be10x AI Tools Workshop Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">Be10x</div><h3>AI Tools &amp; ChatGPT Workshop</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_quizoff.jpg" alt="Unstop QuizOff 2026 Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">Unstop · CampusCrew</div><h3>QuizOff 2026 — India's Biggest AI Quiz</h3></div></div>
+      <div class="cert"><div class="vis"><img src="images/cert_gfg.jpg" alt="GeeksforGeeks Syntax Clash Certificate" loading="lazy"></div>
+        <div class="in"><div class="org">GeeksforGeeks · UIT Chapter</div><h3>Syntax Clash — Competitive Programming</h3></div></div>
+    </div>
+  </div>
+</section>
 
-                        <div class="slide">
-                            <iframe src="images/IBM certificate.pdf"
-                                class="pdf-iframe"></iframe>
-                            <a class="magnifyIframe"
-                                href="images/IBM certificate.pdf"
-                                title="IBM certificate">
-                                <button id="down">View Certificate</button>
-                            </a>
-                        </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap reveal">
+    <div class="kick">Education</div>
+    <h2 class="title">Academic journey 🎓</h2>
+    <div class="egrid">
+      <div class="edu"><div class="yr">2023 — 2027</div><h3>B.Tech — Computer Science &amp; Engineering</h3>
+        <p>United Institute of Technology, Prayagraj (affiliated to Dr. A.P.J. Abdul Kalam Technical University)</p>
+        <span class="score">CGPA 6.60 / 10</span></div>
+      <div class="edu"><div class="yr">2023</div><h3>Intermediate (Class XII, CBSE)</h3>
+        <p>Bal Bharti School, Prayagraj, UP</p><span class="score">70%</span></div>
+      <div class="edu"><div class="yr">2021</div><h3>High School (Class X, CBSE)</h3>
+        <p>Kendriya Vidyalaya New Cantt, Prayagraj, UP</p><span class="score">73%</span></div>
+    </div>
+  </div>
+</section>
 
-                        <div class="slide">
-                            <iframe src="images/IBM Virtual Internship Certificate.pdf" class="pdf-iframe"></iframe>
-                            <a class="magnifyIframe" href="images/IBM Virtual Internship Certificate.pdf"
-                                title="IBM Virtual Internship Certificate">
-                                <button id="down">View Certificate</button>
-                            </a>
-                        </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="cta">
+      <h3>Let's build something measurable 🚀</h3>
+      <p>I'm looking for internships and projects in data analytics, machine learning and web development. If you have an opportunity — or just data that needs answers — my inbox is open.</p>
+      <div class="btns">
+        <a class="btn grad" href="mailto:arpitdubey325@gmail.com">✉ arpitdubey325@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/arpit-kumardubey" target="_blank">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                       
-                        
-                    </div>
-                </div>
-                <div class="portfolio">
-                    <div class="tabs">
-                        <ul>
-                            <li><a class="active" href="#" data-filter="*">All</a></li>
-                            <li><a href="#" data-filter=".design">Android</a></li>
-                            <li><a href="#" data-filter=".frontend">Web Dev</a></li>
-                            <li><a href="#" data-filter=".java">Java</a></li>
-                        </ul>
-                    </div>
-                    <div class="portfolio__wrapper">
-                        <div class="item frontend">
-                            <a class="magnify" href="./images/Project Pics/weather1.png" alt="">
-                                <img src="./images/Project Pics/weather1.png" alt="">
-                            </a>
-                        </div>
-                        <div class="item frontend">
-                            <a class="magnify" href="./images/Project Pics/weatherOutput.png" alt="">
-                                <img src="./images/Project Pics/weatherOutput.png" alt="">
-                            </a>
-                        </div>
-                        <div class="item frontend">
-                            <a class="magnify" href="./images/Project Pics/Tools.png" alt="">
-                                <img src="./images/Project Pics/Tools.png" alt="">
-                            </a>
-                        </div>
-                        <div class="item frontend">
-                            <a class="magnify" href="./images/Project Pics/Food web.png" alt="">
-                                <img src="./images/Project Pics/Food web.png" alt="">
-                            </a>
-                        </div>
-                        <div class="item frontend">
-                            <a class="magnify" href="./images/Project Pics/Food1.png" alt="">
-                                <img src="./images/Project Pics/Food1.png" alt="">
-                            </a>
-                        </div>
-                        
-                        
-                        
+<footer>© 2026 Arpit Kumar Dubey · Prayagraj, India · Made with ☕ and Python</footer>
 
-
-                        
-                        
-                        
-                        
-
-                    </div>
-                </div>
-        </section>
-
-        <section class="partners">
-            <div class="brands__wrapper">
-                <img src="./images/java.png" alt="" title="Java">
-                <img src="./images/physics.png" alt="" title="ReactJs">
-                <img src="./images/coding.png" alt="" title="HTML/CSS/JS">
-                <img src="./images/android.png" alt="" title="Android">
-                <img src="./images/firebase.png" alt="" title="Firebase">
-                <img src="./images/sql-server.png" alt="" title="SQL">
-                <img src="./images/tensorflow.png" alt="" title="Tensorflow">
-                <img src="./images/pandas.png" alt="" title="Pandas">
-            </div>
-        </section>
-
-        <section class="contact">
-            <h1 class="section__heading">Contact Me</h1>
-            <div class="wrapper">
-                <div class="left">
-                    <div>
-                        <div><i style="color:#ea4c89" class="uil uil-envelope"></i></div>
-                        <div>
-                            <h4>Mail Me:</h4>
-                            <a href style="color: aliceblue;">arpitdubey325@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div><i style="color:#ea4c89" class="uil uil-linkedin"></i></div>
-                        <div>
-                            <h4>LinkedIn:</h4>
-                            <a href style="color: aliceblue;">https://linkedin.com/in/arpit-kumar-dubey-674466311</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="right">
-                    <form action="https://formspree.io/f/mgegldww" method="POST">
-                        <div class="form__group">
-                            <div>
-                                <label for="">Name</label>
-                                <input type="text" name="Name">
-                            </div>
-                            <div>
-                                <label for="">Email</label>
-                                <input type="email" name="Email">
-                            </div>
-                        </div>
-
-                        <div class="form__group textarea__wrapper">
-                            <div>
-                                <label for="">Message</label>
-                                <textarea name="Message" id="" cols="30"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit">Submit Now</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="container">
-        <span>© 2024. All rights reserved</span>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="./plugins/headline/headline.js"></script>
-    <script src="./plugins/bubble.js"></script>
-    <script src="./plugins/ripples.js"></script>
-    <script src="./plugins/isotope.js"></script>
-    <script src="./plugins/magnify.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="app.js"></script>
-    <!-- <script src="text/javascript" >
-        function myfun() {
-            window.print();
-        }
-    </script> -->
+<script>
+// duplicate ticker content for a seamless loop
+const tt=document.getElementById('tickerTrack');tt.innerHTML+=tt.innerHTML;
+// typing effect
+const roles=["Data Analyst","Python Developer","AI/ML Enthusiast","Web Developer","Problem Solver"];
+const el=document.getElementById('typed');let ri=0,ci=0,del=false;
+(function tick(){
+  const w=roles[ri];el.textContent=w.slice(0,ci);
+  if(!del){ci++;if(ci>w.length){del=true;return setTimeout(tick,1400);}}
+  else{ci--;if(ci===0){del=false;ri=(ri+1)%roles.length;}}
+  setTimeout(tick,del?36:76);
+})();
+// reveal + counters
+const io=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(!e.isIntersecting)return;e.target.classList.add('on');
+  e.target.querySelectorAll('[data-n]').forEach(s=>{
+    const end=+s.dataset.n,suf=s.dataset.s||'';let cur=0;const step=Math.max(1,Math.round(end/45));
+    const t=setInterval(()=>{cur+=step;if(cur>=end){cur=end;clearInterval(t);}s.textContent=cur+suf;},28);
+  });
+  io.unobserve(e.target);
+});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
 </body>
-
 </html>
